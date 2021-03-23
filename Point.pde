@@ -1,6 +1,18 @@
 //Her bruges der nedarvning.
 class Point extends Collectable {
   
+  float value = 1;
+  
+  //Dette er overload, da der er flere konstruktører med forskellige input-muligheder.
+  Point(PVector pos_, float value_) {
+    
+    this(pos_);
+    
+    value = value_;
+    size = value * 10;
+  }
+  
+  //Dette er overload, da der er flere konstruktører med forskellige input-muligheder.
   Point(PVector pos_) {
    
     super(pos_);
@@ -11,8 +23,7 @@ class Point extends Collectable {
   //Her bliver der overridet metoden collect fra Collectable-klassen.
   void collect() {
     
-    player.point += 1;
-    
+    player.point += value;
   }
 
 }

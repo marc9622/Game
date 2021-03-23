@@ -6,13 +6,14 @@ class PowerUp extends Collectable {
     super(pos_);
     
     col = color(0, 0, 255);
+    
+    size = 30;
   }
   
   //Her bliver der overridet metoden collect fra Collectable-klassen.
   void collect() {
     
     player.speed += 0.2;
-    
   }
   
 }

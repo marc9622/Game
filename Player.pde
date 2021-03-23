@@ -13,20 +13,19 @@ class Player {
   //Dette er en metode i klassen Player
   void display() {
     
-    offset = point + 10;
+    offset = (point + 10) * (width + height) / 2 / 500;
     
     fill(color(255, 0, 0));
-    circle(x, y, offset);
-    text(point, x, y - offset / 2 - 1);
-    
+    square(x, y, offset);
   }
   
   void move() {
     
-    if(isUp    && y - offset / 2 > 0)      y -= speed;
-    if(isDown  && y + offset / 2 < height) y += speed;
-    if(isLeft  && x - offset / 2 > 0)      x -= speed;
-    if(isRight && x + offset / 2 < width)  x += speed;
+    float tempSpeed = speed * (width + height) / 2 / 500;
+    
+    if(isUp    && y - offset / 2 > 0)      y -= tempSpeed;
+    if(isDown  && y + offset / 2 < height) y += tempSpeed;
+    if(isLeft  && x - offset / 2 > 0)      x -= tempSpeed;
+    if(isRight && x + offset / 2 < width)  x += tempSpeed;
   }
-  
 }
