@@ -1,7 +1,7 @@
 //Her bruges der nedarvning.
 class Point extends Collectable {
   
-  float value = 1;
+  float value;
   
   //Dette er overload, da der er flere konstruktører med forskellige input-muligheder.
   Point(PVector pos_, float value_) {
@@ -17,6 +17,7 @@ class Point extends Collectable {
    
     super(pos_);
     
+    value = 1;
     col = color(255, 255, 0);
   }
   
@@ -25,5 +26,4 @@ class Point extends Collectable {
     
     player.point += value;
   }
-
 }
