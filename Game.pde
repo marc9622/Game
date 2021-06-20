@@ -1,5 +1,6 @@
 //Her laves der et objekt af klassen Player. Objektet er af typen Player.
-static Player player;
+Player player;
+int level = 0;
 
 ArrayList<Collectable> collectables = new ArrayList();
 
@@ -17,13 +18,17 @@ void setup(){
 }
 
 void spawnCollectables() {
+  level++;
   
   //Her bliver der brugt Point-objekter i en ArrayList lavet til Collectable-objekter. Dette er polymorfi.
-  for(int i = 0; i < player.point; i++)
-    collectables.add(new Point(getRandomPosition(), (int)random(1,3)));
+  for(int i = 0; i < level;) {
+    int points = round(random(1,3));
+    collectables.add(new Point(getRandomPosition(), points));
+    i += points;
+  }
   
   //Her bliver der brugt PowerUp-objekter i en ArrayList lavet til Collectable-objekter. Dette er polymorfi.
-  for(int i = 0; i < 3; i++)
+  for(int i = 0; i < random(3); i++)
     collectables.add(new PowerUp(getRandomPosition()));
 }
 
